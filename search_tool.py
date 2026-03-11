@@ -15,8 +15,23 @@ Pinecone 向量搜索工具
 import os
 import sys
 import argparse
+from pathlib import Path
 from openai import OpenAI
 from pinecone import Pinecone
+
+def load_env_file():
+    """Load .env file from skill directory"""
+    env_path = Path(__file__).parent / ".env"
+    if env_path.exists():
+        with open(env_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    key, value = line.split("=", 1)
+                    key = key.strip()
+                    value = value.strip()
+                    if key and key not in os.environ:
+                        os.environ[key] = value
 
 def load_config():
     """加载配置"""
@@ -132,6 +147,9 @@ def main():
     parser.add_argument("--top-k", type=int, default=3, help="返回结果数量 (默认: 3)")
 
     args = parser.parse_args()
+
+    # Load .env file first
+    load_env_file()
 
     # 加载配置
     config = load_config()
