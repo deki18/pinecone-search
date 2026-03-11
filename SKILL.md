@@ -40,7 +40,7 @@ cp config.example.env .env
 ```env
 PINECONE_API_KEY=your_pinecone_api_key
 EMBEDDING_API_KEY=your_embedding_api_key
-EMBEDDING_BASE_URL=https://api.vectorengine.ai/v1
+EMBEDDING_BASE_URL=https://api.openai.com/v1
 EMBEDDING_MODEL=text-embedding-3-large
 INDEX_NAME=your-index-name
 NAMESPACE=
