@@ -134,7 +134,7 @@ python search.py "混凝土标准" --file-type markdown --min-score 0.6 --top-k 
 
 - 规范、标准
 - 查询资料、知识库
-- 上传文档、添加文件
+- 上传文档、添加文件、pineone
 
 ## 示例
 
